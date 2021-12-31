@@ -1,12 +1,20 @@
-import Component from 'react'
+import {Component} from 'react'
+import Producto from './components/Producto'
 
 class Productos extends Component {
     render(){
-        const {productos, agregarAlCarro} = this.props
+        const { productos, agregarAlCarro} = this.props
         return(
-            <p>productos</p>
+            <div>
+              {productos.map(producto =>
+                <Producto 
+                    agregarAlCarro = {agregarAlCarro}
+                    key = {producto.name}
+                    producto = {producto}
+                />)}
+            </div>
         )
     }
 }
 
-export default Productos;
+export default Productos
